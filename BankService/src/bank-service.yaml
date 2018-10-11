@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bank-service
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bank-service
+    spec:
+      containers:
+      - image: 500452054617.dkr.ecr.us-east-1.amazonaws.com/bankservice:1.0
+        imagePullPolicy: Always
+        name: bank-service
+        ports:
+        - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bank-service
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+  - port: 8082
+    targetPort: 8082
+    protocol: TCP
+  selector:
+    app: bank-service
+  type: ClusterIP

@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk
+
+COPY bank-service-1.0.jar /opt/
+ENTRYPOINT ["java", "-jar", "/opt/bank-service-1.0.jar"]

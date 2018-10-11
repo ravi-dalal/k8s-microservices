@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk
+
+COPY customer-service-1.0.jar runservice.sh /opt/
+RUN chmod +x /opt/runservice.sh
+ENTRYPOINT ["/opt/runservice.sh"]

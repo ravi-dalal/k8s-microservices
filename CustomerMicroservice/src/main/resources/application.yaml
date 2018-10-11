@@ -1,0 +1,6 @@
+server:
+  port: 9080
+bankservice:
+  id: bank-service
+  host: localhost
+  port: 8082
