@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: customer-service
-        image: 500452054617.dkr.ecr.us-east-1.amazonaws.com/customerservice:1.0
+        image: ravidalal/customerservice:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

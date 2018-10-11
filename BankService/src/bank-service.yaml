@@ -11,7 +11,7 @@ spec:
         app: bank-service
     spec:
       containers:
-      - image: 500452054617.dkr.ecr.us-east-1.amazonaws.com/bankservice:1.0
+      - image: ravidalal/bankservice:1.0
         imagePullPolicy: Always
         name: bank-service
         ports:
