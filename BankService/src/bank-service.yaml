@@ -23,7 +23,6 @@ metadata:
   name: bank-service
   namespace: default
 spec:
-  type: NodePort
   ports:
   - port: 8082
     targetPort: 8082
