@@ -1,9 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: customer-service
   namespace: default
 spec:
+  selector:
+    matchLabels:
+      app: customer-service
   replicas: 1
   template:
     metadata:
@@ -18,12 +21,11 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - name: config-volume
-          mountPath: /opt/application.yaml
-          subPath: application.yaml
+          mountPath: /opt/app/cs/
       volumes:
       - name: config-volume
         configMap:
-          name: customer-service-yaml
+          name: customer-service-cm
 ---
 apiVersion: v1
 kind: Service
